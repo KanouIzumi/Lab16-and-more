@@ -6,6 +6,9 @@ public class Bullet_Controller : MonoBehaviour
 {
     public float speed;
 
+    float zLimit = 10f;
+    float xLimit = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +19,27 @@ public class Bullet_Controller : MonoBehaviour
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+
+        if(transform.position.x > xLimit)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.x < -xLimit)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.z > zLimit)
+        {
+            Destroy(gameObject);
+        }
+
+        if (transform.position.z < -zLimit)
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 }
