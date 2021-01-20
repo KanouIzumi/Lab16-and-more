@@ -12,6 +12,7 @@ public class Character_Controller : MonoBehaviour
 
     public int healthCount;
     public int coinCount;
+    public int totalCoinCount;
 
     public GameObject healthText;
     public GameObject coinCountText;
@@ -30,6 +31,7 @@ public class Character_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        totalCoinCount = GameObject.FindGameObjectsWithTag("Coin").Length;
     }
 
     // Update is called once per frame
@@ -62,9 +64,14 @@ public class Character_Controller : MonoBehaviour
 
         rb.velocity = new Vector2(hVelocity, rb.velocity.y + vVelocity);
 
-        if(healthCount == 0)
+        if(healthCount == 0 || transform.position.y < -5)
         {
             SceneManager.LoadScene("LoseScene");
+        }
+
+        if(coinCount == totalCoinCount)
+        {
+            SceneManager.LoadScene("Winscene");
         }
     }
 
