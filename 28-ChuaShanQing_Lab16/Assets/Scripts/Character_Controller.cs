@@ -39,12 +39,14 @@ public class Character_Controller : MonoBehaviour
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             transform.rotation = Quaternion.Euler(0, -90 + rotation, 0);
+            //transform.Rotate(new Vector3(0, Time.deltaTime * -rotateSpeed, 0));
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // go rightside
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             transform.rotation = Quaternion.Euler(0, 90 + rotation, 0);
+            //transform.Rotate(new Vector3(0, Time.deltaTime * rotateSpeed, 0));
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
