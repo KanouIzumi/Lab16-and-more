@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Character_Controller : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class Character_Controller : MonoBehaviour
 
     public int healthCount;
     public int coinCount;
+
+    public GameObject healthText;
+    public GameObject coinCountText;
 
     bool onAir;
 
@@ -56,6 +62,10 @@ public class Character_Controller : MonoBehaviour
 
         rb.velocity = new Vector2(hVelocity, rb.velocity.y + vVelocity);
 
+        if(healthCount == 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,7 +73,21 @@ public class Character_Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             onAir = false;
-            //audioSource.PlayOneShot(AudioClipBGMArr[0]);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            healthCount -= 10;
+            healthText.GetComponent<Text>().text = "Health: " + healthCount;
+            audioSource.PlayOneShot(AudioClipBGMArr[1]);
+        }
+
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            coinCount++;
+            audioSource.PlayOneShot(AudioClipBGMArr[3]);
+            Destroy(collision.gameObject, 1);
+            coinCountText.GetComponent<Text>().text = "Coin: " + coinCount;
         }
     }
 
@@ -74,6 +98,7 @@ public class Character_Controller : MonoBehaviour
         {
             animator.SetTrigger("JumpTrigger");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(AudioClipBGMArr[2]);
             onAir = true;
         }
     }
