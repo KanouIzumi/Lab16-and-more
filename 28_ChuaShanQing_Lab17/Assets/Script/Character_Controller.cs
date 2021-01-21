@@ -11,7 +11,7 @@ public class Character_Controller : MonoBehaviour
     public float jumpForce;
 
     public int healthCount;
-    public int coinCount;
+    public static int coinCount;
     public int totalCoinCount;
 
     public GameObject healthText;
