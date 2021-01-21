@@ -45,6 +45,11 @@ public class Character_Controller : MonoBehaviour
             hVelocity = -moveSpeed;
             transform.localScale = new Vector3(-1, 1, -1);
             animator.SetFloat("xVelocity", Mathf.Abs(hVelocity));
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(AudioClipBGMArr[0]);
+            }
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
@@ -52,6 +57,11 @@ public class Character_Controller : MonoBehaviour
             hVelocity = moveSpeed;
             transform.localScale = new Vector3(1, 1, 1);
             animator.SetFloat("xVelocity", Mathf.Abs(hVelocity));
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(AudioClipBGMArr[0]);
+            }
         }
         else
         {
