@@ -4623,6 +4623,7 @@ GameObject:
   - component: {fileID: 1321697739}
   - component: {fileID: 1321697738}
   - component: {fileID: 1321697737}
+  - component: {fileID: 1321697740}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -4752,6 +4753,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321697740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321697736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae4085c2825e5e42b944f7112cb7c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344236325
 GameObject:
   m_ObjectHideFlags: 0
