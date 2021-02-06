@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
   - Goal
   - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
